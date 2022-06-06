@@ -34,21 +34,6 @@ class Cell extends StatelessWidget {
   }
 }
 
-class CellBlocker extends StatelessWidget {
-  const CellBlocker({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    double cellSize = context.read<ProviderPrefs>().cellSize;
-    return SizedBox(
-      height: cellSize - 5,
-      width: cellSize - 5,
-      child: Icon(FontAwesomeIcons.squareXmark,
-          size: cellSize - 2, color: Colors.black),
-    );
-  }
-}
-
 class CellSuggested extends StatelessWidget {
   const CellSuggested({Key? key}) : super(key: key);
 

@@ -30,7 +30,7 @@ class _ScreenGameState extends State<ScreenGame> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.white, body: Board());
+    return const Scaffold(backgroundColor: Colors.white, body: Board());
   }
 
   @override
