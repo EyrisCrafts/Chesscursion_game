@@ -20,6 +20,7 @@ class ProviderGame extends ChangeNotifier {
   bool isMusicAllowed = true;
 
   void onCellTapped(int x, int y, BuildContext context) {
+    if (isMoveAnimationInProgress) return;
     if (selectedPiece.isSelected) {
       if (Utils.getPossibleMove(board, selectedPiece.position!)
           .contains(Position(x, y))) {
@@ -61,6 +62,7 @@ class ProviderGame extends ChangeNotifier {
   }
 
   void setLevel(int level) {
+    if (level == Config.levels.length) level = 0;
     currentLevel = level;
     board =
         Config.levels[level].map((element) => List<int>.from(element)).toList();
@@ -120,12 +122,16 @@ class ProviderGame extends ChangeNotifier {
               piece: piece,
             ));
     Overlay.of(context)!.insert(entry);
+    isMoveAnimationInProgress = true;
     Future.delayed(const Duration(milliseconds: 599), () {
+      isMoveAnimationInProgress = false;
       board[newY][endPos.x] = piece.index;
       notifyListeners();
       entry.remove();
     });
   }
+
+  bool isMoveAnimationInProgress = false;
 
   void removeSuggestions() {
     for (int i = 0; i < Constants.numVerticalBoxes; i++) {
