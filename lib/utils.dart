@@ -1,3 +1,4 @@
+import 'package:chessnomer/extensions.dart';
 import 'package:chessnomer/game/widgets/cell.dart';
 import 'package:chessnomer/providers/provider_game.dart';
 import 'package:flutter/material.dart';
@@ -23,68 +24,7 @@ enum EnumChess {
   blackPawn,
 }
 
-extension ChessExtensions on EnumChess {
-  int getNumber() {
-    return EnumChess.values.indexOf(this);
-  }
-}
-
 enum UniqueChessPieces { king, queen, bishop, knight, rook, pawn }
-
-extension ChessUtils on int {
-  bool isInBounds(String axis) {
-    if (axis == 'x') {
-      return this < Constants.numHorizontalBoxes;
-    }
-    return this < 10;
-  }
-
-  bool isEmpty() {
-    return this == 0 || this == EnumChess.suggested.getNumber();
-  }
-
-  bool isSuggested() {
-    return this == 2;
-  }
-
-  bool isBlock() {
-    return this == EnumChess.block.getNumber();
-  }
-
-  EnumChess getPiece() {
-    if (this < EnumChess.values.length) {
-      return EnumChess.values[this];
-    }
-    return EnumChess.blank;
-  }
-
-  bool isPieceBlack() {
-    final EnumChess enumPiece = getPiece();
-    if (enumPiece.toString().contains('black')) {
-      return true;
-    }
-    return false;
-  }
-
-  bool isPieceWhite() {
-    final EnumChess enumPiece = getPiece();
-    if (enumPiece.toString().contains('white')) {
-      return true;
-    }
-    return false;
-  }
-
-  bool isChessPiece() {
-    final EnumChess enumPiece = getPiece();
-
-    if (enumPiece != EnumChess.blank &&
-        enumPiece != EnumChess.block &&
-        enumPiece != EnumChess.suggested) {
-      return true;
-    }
-    return false;
-  }
-}
 
 class Utils {
   static Widget iconWidget(IconData iconData,
@@ -97,7 +37,6 @@ class Utils {
       case EnumChess.blank:
         return const SizedBox();
       case EnumChess.block:
-        // return const CellBlocker();
         return iconWidget(FontAwesomeIcons.squareXmark,
             color: Colors.black, size: cellSize - 2);
       case EnumChess.suggested:

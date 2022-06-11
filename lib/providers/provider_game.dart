@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:chessnomer/config.dart';
 import 'package:chessnomer/constants.dart';
+import 'package:chessnomer/extensions.dart';
 import 'package:chessnomer/overlays/overlay_piece.dart';
 import 'package:chessnomer/overlays/overlay_won.dart';
 import 'package:chessnomer/providers/provider_prefs.dart';
@@ -34,7 +35,6 @@ class ProviderGame extends ChangeNotifier {
         notifyListeners();
 
         //Win check
-
         winCheckCondition(context);
 
         //Gravity Check !
