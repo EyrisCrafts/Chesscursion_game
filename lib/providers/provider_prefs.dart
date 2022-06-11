@@ -8,18 +8,17 @@ class ProviderPrefs extends ChangeNotifier {
 
   //Cell size must be small enough to allow side tabs to be at least 120 px
   void setCellSize(BuildContext context) {
-    if (cellSize != 0) return;
     Size screenSize = MediaQuery.of(context).size;
 
     double height = screenSize.height;
     double properCellSize = calculateCellSize(height, screenSize.width);
     double sideBarSize = calculateSideBarSize(screenSize.width, properCellSize);
     while (sideBarSize < 65) {
-      height = height - 2;
+      height = height - 10;
       properCellSize = calculateCellSize(height, screenSize.width);
       sideBarSize = calculateSideBarSize(screenSize.width, properCellSize);
     }
-    cellSize = properCellSize = calculateCellSize(height, screenSize.width);
+    cellSize = properCellSize;
   }
 
   double calculateCellSize(double screenHeight, double screenWidth) {
