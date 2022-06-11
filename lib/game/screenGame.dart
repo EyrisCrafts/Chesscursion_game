@@ -1,11 +1,7 @@
-import 'package:chessnomer/constants.dart';
 import 'package:chessnomer/game/widgets/board.dart';
 import 'package:chessnomer/providers/provider_prefs.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
-
 import 'package:provider/provider.dart';
-
 import '../providers/provider_game.dart';
 
 class ScreenGame extends StatefulWidget {

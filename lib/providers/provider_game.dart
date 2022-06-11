@@ -4,7 +4,6 @@ import 'package:chessnomer/constants.dart';
 import 'package:chessnomer/extensions.dart';
 import 'package:chessnomer/overlays/overlay_piece.dart';
 import 'package:chessnomer/overlays/overlay_won.dart';
-import 'package:chessnomer/providers/provider_prefs.dart';
 import 'package:chessnomer/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -152,7 +151,6 @@ class ProviderGame extends ChangeNotifier {
         board[pos.y][pos.x] = EnumChess.suggested.getNumber();
     }
     notifyListeners();
-    //
   }
 
   switchMusic() async {
@@ -172,12 +170,10 @@ class ProviderGame extends ChangeNotifier {
       music = "kill.mp3";
     }
     audioMove = await audioCacheMove.play(music);
-    // audioMove.play(music, isLocal: true);
   }
 
   playMusic() async {
     audioBackground = await audioCacheBackground.play("music.mp3");
-    // audioBackground.play("assets/music.mp3", isLocal: true);
   }
 
   ProviderGame() {

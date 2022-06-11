@@ -1,11 +1,8 @@
 import 'package:chessnomer/constants.dart';
 import 'package:chessnomer/extensions.dart';
-import 'package:chessnomer/providers/provider_game.dart';
 import 'package:chessnomer/providers/provider_prefs.dart';
 import 'package:chessnomer/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class Cell extends StatelessWidget {
@@ -15,7 +12,7 @@ class Cell extends StatelessWidget {
   final int index;
   final int item;
   final Function() onTap;
-  //Content
+
   @override
   Widget build(BuildContext context) {
     double cellSize = context.read<ProviderPrefs>().cellSize;

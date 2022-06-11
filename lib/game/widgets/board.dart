@@ -1,5 +1,4 @@
 import 'package:chessnomer/constants.dart';
-import 'package:chessnomer/game/screenGame.dart';
 import 'package:chessnomer/game/widgets/cell.dart';
 import 'package:chessnomer/providers/provider_game.dart';
 import 'package:chessnomer/providers/provider_prefs.dart';
@@ -18,7 +17,7 @@ class Board extends StatelessWidget {
     Size screenSize = MediaQuery.of(context).size;
     return Container(
       alignment: Alignment.center,
-      color: Colors.black,
+      color: const Color.fromARGB(255, 105, 75, 31),
       child: Stack(
         children: [
           //Settings
