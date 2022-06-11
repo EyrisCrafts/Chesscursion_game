@@ -2,7 +2,7 @@
     package="com.example.chessnomer">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="chessnomer"
+        android:label="ChessFormer"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
